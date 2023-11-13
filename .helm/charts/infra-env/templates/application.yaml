@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ .Release.Name }}-infraenv
+  namespace: openshift-gitops
+  labels:
+    {{- include "infra-env.labels" . | nindent 4 }} 
+spec:
+  destination:
+    namespace: {{ .Release.Namespace }}
+    server: 'https://kubernetes.default.svc'
+  project: cluster-config
+  source:
+    path: infra-env/{{ .Release.Name }}
+    repoURL: 'https://github.com/raffaelespazzoli/e2e-baremetal-provisioning'
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      selfHeal: true
+    retry:
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 10m
+      limit: -1
+    syncOptions:
+      - ApplyOutOfSyncOnly=true
+      - PrunePropagationPolicy=foreground
+      - PruneLast=true
+      - ServerSideApply=true
+      - FailOnSharedResource=true
+      - RespectIgnoreDifferences=true
+      - CreateNamespace=false
