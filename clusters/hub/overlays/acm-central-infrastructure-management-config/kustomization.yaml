@@ -4,4 +4,4 @@ kind: Kustomization
 commonAnnotations:
   argocd.argoproj.io/sync-options: Delete=false
 resources:
-  - ../../../components/acm-central-infrastructure-management-config/
+  - ../../../../components/acm-central-infrastructure-management-config/
