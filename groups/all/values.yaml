@@ -31,7 +31,7 @@ projects:
     description: Project for overall cluster configuration
     namespace: openshift-gitops
     sourceRepos:
-    - https://github.com/raffaelespazzoli/gitops-std-repo
+    - https://github.com/raffaelespazzoli/e2e-baremetal-provisioning
     destinations: |
       - namespace: '*'
         server: https://kubernetes.default.svc
@@ -50,3 +50,16 @@ applications:
       namespace: cert-manager
     source:
       path: components/cert-manager-operator
+
+  oauth-config:
+    annotations:
+      argocd.argoproj.io/compare-options: IgnoreExtraneous
+      argocd.argoproj.io/sync-wave: '5'
+    destination:
+      namespace: openshift-config  
+    source:
+      path: components/oauth-config     
+
+      
+
+
