@@ -32,6 +32,24 @@ default:
 
 applications:
 
+  ansible-automation-platform-operator:
+    annotations:
+      argocd.argoproj.io/compare-options: IgnoreExtraneous
+      argocd.argoproj.io/sync-wave: '5'
+    destination:
+      namespace: aap
+    source:
+      path: clusters/hub/overlays/ansible-automation-platform-operator 
+
+  ansible-automation-platform-configuration:
+    annotations:
+      argocd.argoproj.io/compare-options: IgnoreExtraneous
+      argocd.argoproj.io/sync-wave: '15'
+    destination:
+      namespace: aap
+    source:
+      path: clusters/hub/overlays/ansible-automation-platform-configuration       
+
   acm-operator:
     annotations:
       argocd.argoproj.io/compare-options: IgnoreExtraneous
@@ -39,7 +57,7 @@ applications:
     destination:
       namespace: open-cluster-management
     source:
-      path: clusters/hub/overlays/acm-operator
+      path: clusters/hub/overlays/acm-operator      
 
   acm-configuration:
     annotations:
