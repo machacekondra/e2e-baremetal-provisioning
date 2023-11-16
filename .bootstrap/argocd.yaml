@@ -261,10 +261,10 @@ spec:
         memory: 256Mi
   resourceIgnoreDifferences:
     resourceIdentifiers:
-    - group: ''
-      kind: Secret       
-      jsonPointers:
-        - /data
+      - customization:
+          jsonPointers:
+            - /data
+        kind: Secret
   resourceExclusions: |
     - apiGroups:
       - internal.open-cluster-management.io
