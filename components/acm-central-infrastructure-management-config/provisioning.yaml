@@ -6,3 +6,4 @@ metadata:
     argocd.argoproj.io/sync-options: ServerSideApply=true
 spec:
   watchAllNamespaces: true
+  provisioningNetwork: "Disabled"
