@@ -1,0 +1,18 @@
+apiVersion: metal3.io/v1alpha1
+kind: BareMetalHost
+metadata:
+  annotations:
+    bmac.agent-install.openshift.io/hostname: ilo1.etl.rht-labs.com
+    bmac.agent-install.openshift.io/role: master
+  labels:
+    infraenvs.agent-install.openshift.io: demo-infra
+  name: ilo1.etl.rht-labs.com
+  namespace: demo-infra
+spec:
+  automatedCleaningMode: metadata
+  bmc:
+    address: "idrac-virtualmedia://10.9.48.211/redfish/v1/Systems/System.Embedded.1"
+    credentialsName: drac-credentials
+    disableCertificateVerification: true
+  bootMACAddress: "30:E1:71:51:8E:06"
+  online: true
