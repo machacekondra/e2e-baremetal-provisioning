@@ -9,7 +9,6 @@ metadata:
   name: ilo1.etl.rht-labs.com
   namespace: demo-infra
 spec:
-  automatedCleaningMode: metadata
   bmc:
     address: "idrac-virtualmedia://10.9.48.211/redfish/v1/Systems/System.Embedded.1"
     credentialsName: drac-credentials
