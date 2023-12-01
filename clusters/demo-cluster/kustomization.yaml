@@ -3,8 +3,6 @@ kind: Kustomization
 
 components:
   - ../../groups/all
-  - ../../groups/non-prod
-  - ../../groups/geo-east
 
 helmGlobals:
   chartHome: ../../.helm/charts

@@ -9,7 +9,7 @@ patches:
   - patch: |-
       - op: replace
         path: /spec/href
-        value: "https://kube-ops-view-kube-ops-view.apps.non-prod-east.example.domain"
+        value: "https://kube-ops-view-kube-ops-view.apps.demo-cluster.rht-labs.com"
     target:
       kind: ConsoleLink
       name: kube-ops-view-link

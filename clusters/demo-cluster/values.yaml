@@ -7,4 +7,4 @@ applications:
     destination:
       namespace: kube-ops-view
     source:
-      path: clusters/non-prod-east/overlays/kube-ops-view            
+      path: clusters/demo-cluster/overlays/kube-ops-view            
