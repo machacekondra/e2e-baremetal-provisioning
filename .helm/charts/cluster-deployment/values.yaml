@@ -6,6 +6,7 @@ apiVIP: 10.1.196.49
 clusterSet: default
 baseDomain: practice.redhat.com
 automaticHostBinding: true
+sshPublicKey: "nothing"
 
 hostNames:
 - pool4-compute1.practice.redhat.com

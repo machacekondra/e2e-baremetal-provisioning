@@ -22,3 +22,4 @@ spec:
     - 172.30.0.0/16
   ingressVIP: {{ .Values.ingressVIP }}
   apiVIP: {{ .Values.apiVIP }}
+  sshPublicKey: {{ .Values.sshPublicKey }}
