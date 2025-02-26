@@ -7,7 +7,7 @@ projects:
     description: Project for overall cluster configuration
     namespace: openshift-gitops
     sourceRepos:
-    - https://github.com/raffaelespazzoli/e2e-baremetal-provisioning
+    - https://github.com/machacekondra/e2e-baremetal-provisioning
     destinations: |
       - namespace: '*'
         server: https://kubernetes.default.svc

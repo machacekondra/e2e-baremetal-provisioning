@@ -1,30 +1,24 @@
 # note this chart expects the secret: pull-secret-{{ .Release.Name }} to be present.
 
 
-location: insert-location-here
-sshPublicKey: insert-public-key-here
+location: europe
+sshPublicKey: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQD1iL9/XVz0a/dJ2lYyAnxCc5lbeark2gHcXDLKXDo9+zJlJ4uVAzMpv0ijV2nAMkFOELJDgvCuKzmwtuv31PhHxnnB4SOPVaOyJtmVhVJIJ4cQWxxrELDhJDgcE1fTR1jZPa3lDleq1nPp6hkAfh9li+/8RwKwalcbu91jWVD0a9vzyYhSf2e+6UtbIINFEmY+Bnnou970EBfBVB4NSool9urXsIJuhhxCuL0A+131a5mMEN4G6KxbNFdmkfPbbUvFEmFCeDiYi63r0vnOXIxrjjZV8Zqc2XW/WfNqJfJaNzfshgqoo9tVm9utgN0/C5pb1GUqRgyb5Buvrlv6wzhUaTcGZBeMRi/mrjHXkxMzj6vp6C/vE8wy1LGp78mnCtRQM88eCTLpt9jyk/rwVi4g1dTugV54Zq/M8g+BEo7e744QaYeKIuyIrdgMytzAANramA0lpDc8igviNTG77vkAxfqWB6fRJ+Zc07uUDO3BonhMIg/FXOJ8Xz47kTIpBSlr/KszpFYTCfEXjZqJisItv+NCNMJ8tbRr7/TQAkx8W+8qCNNxVeCjEqTLYFZari6W0S2EpyeoUjxOPb+SosqNnbHlElw/yx5nB3zSrK0klRrbb34mxpFM7JTWE6vr9GogE9Yc6QnSwMU12iRRU2maCgsIR4pD1tjpVpVk3Op8tQ==
 
 dnsResolvers:
-  - 192.168.0.1
+  - 10.46.41.61
 
 routesConfig:
   - destination: 0.0.0.0/0
-    next-hop-address: 192.168.30.1
+    next-hop-address: 192.168.127.1
     next-hop-interface: en0
     table-id: 254
 
 servers:
-  - hostname: server1.mydomain.example
-    role: worker
-    bmcAddress: idrac-virtualmedia://10.1.177.44/redfish/v1/Systems/System.Embedded.1
-    bootMACAddress: E4:43:4B:4E:40:35
-    labels: 
-      mylabel: myvalue
+  - hostname: master0.ocp4.example.com
+    role: master
     nmstate:
       enabled: true
-      spec:  
-        interfaces:
-          en0: 12:23:45:56:78
+      spec:
         interfacesConfig:
           ens1:
             type: ethernet
@@ -33,6 +27,38 @@ servers:
               ipv4:
                 enabled: true
                 address:
-                  - ip: 192.168.1.1
+                  - ip: 192.168.127.201
+                    prefix-length: 23
+                dhcp: false
+  - hostname: master1.ocp4.example.com
+    role: master
+    nmstate:
+      enabled: true
+      spec:
+        interfacesConfig:
+          ens1:
+            type: ethernet
+            network:
+              mac-address: 98:76:54:32:11
+              ipv4:
+                enabled: true
+                address:
+                  - ip: 192.168.127.202
+                    prefix-length: 23
+                dhcp: false
+  - hostname: master2.ocp4.example.com
+    role: master
+    nmstate:
+      enabled: true
+      spec:
+        interfacesConfig:
+          ens1:
+            type: ethernet
+            network:
+              mac-address: 98:76:54:32:12
+              ipv4:
+                enabled: true
+                address:
+                  - ip: 192.168.127.203
                     prefix-length: 23
                 dhcp: false

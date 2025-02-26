@@ -16,13 +16,6 @@ spec:
     grpc:
       ingress:
         enabled: false
-    resources:
-      limits:
-        cpu: 500m
-        memory: 256Mi
-      requests:
-        cpu: 125m
-        memory: 128Mi
     insecure: true
     route:
       enabled: true
@@ -201,13 +194,6 @@ spec:
     enabled: false
     ingress:
       enabled: false
-    resources:
-      limits:
-        cpu: 500m
-        memory: 256Mi
-      requests:
-        cpu: 250m
-        memory: 128Mi
     route:
       enabled: false
   prometheus:
@@ -220,13 +206,6 @@ spec:
   applicationSet:
     #extraCommandArgs:
     #  - --enable-progressive-syncs
-    resources:
-      limits:
-        cpu: "2"
-        memory: 1Gi
-      requests:
-        cpu: 250m
-        memory: 512Mi
   rbac:
     defaultPolicy: 'role:admin'
     policy: |
@@ -252,13 +231,6 @@ spec:
     volumeMounts:
       - mountPath: /.config/kustomize/plugin/policy.open-cluster-management.io/v1/policygenerator
         name: policy-generator
-    resources:
-      limits:
-        cpu: "1"
-        memory: 1Gi
-      requests:
-        cpu: 250m
-        memory: 256Mi
   resourceIgnoreDifferences:
     resourceIdentifiers:
       - customization:
@@ -281,13 +253,6 @@ spec:
       - PipelineRun
   sso:
     dex:
-      resources:
-        limits:
-          cpu: 500m
-          memory: 256Mi
-        requests:
-          cpu: 250m
-          memory: 128Mi
       openShiftOAuth: true
     provider: dex
   ha:

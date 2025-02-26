@@ -11,25 +11,25 @@ helmCharts:
     releaseName: demo-cluster
     namespace: demo-cluster
     valuesInline:  
-      sshPublicKey: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCWVnOEYFaN6tp/CXn5aBgD5YZbbwJHhUYbAahoGz3IbP8YZZwyBvJvgy9CujKTaIpZHweYRwMEtvPaX65g8AQDd8t6Gqc+JVJue6HTqrawH2wvq8Qdhip9L09fK2WqtP7UbVF+fgiwm9kebajkAqtlOttcdHipeRy5TGVE2hbV1zqc6UjTo6lKzxflm2Jd5EMc4TZCleSFApBod+jgFZoke/8Q/GHWyQs7YaoE3h/JND7z6aye5HoAPQBT18y/4Amwj7h2hIcIsSJ8JAHsOZ0NB4gz1qwpkG/dYAYV1iARM/+qnZ7EJAt4DofqUAS1/0BdXK+1RL8uI0db4r8U3pTe+oFGORQHRNa+ehDoX1PdOU+o59OmjEaJpcq0YRB3NqOwfZzATUfOqcZswH0xC6WKi/UknBFPgJv6JfD0+dee/kWTmgFrzT6Ie9hRql2bA+qjSoPfWzPk+Gv1Wuf6UGdC2DpKPO+vOhVzRtog/cvwjGSJv5p2X6biRGiYy8a0bX0= rspazzol@rspazzol
+      sshPublicKey: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQD1iL9/XVz0a/dJ2lYyAnxCc5lbeark2gHcXDLKXDo9+zJlJ4uVAzMpv0ijV2nAMkFOELJDgvCuKzmwtuv31PhHxnnB4SOPVaOyJtmVhVJIJ4cQWxxrELDhJDgcE1fTR1jZPa3lDleq1nPp6hkAfh9li+/8RwKwalcbu91jWVD0a9vzyYhSf2e+6UtbIINFEmY+Bnnou970EBfBVB4NSool9urXsIJuhhxCuL0A+131a5mMEN4G6KxbNFdmkfPbbUvFEmFCeDiYi63r0vnOXIxrjjZV8Zqc2XW/WfNqJfJaNzfshgqoo9tVm9utgN0/C5pb1GUqRgyb5Buvrlv6wzhUaTcGZBeMRi/mrjHXkxMzj6vp6C/vE8wy1LGp78mnCtRQM88eCTLpt9jyk/rwVi4g1dTugV54Zq/M8g+BEo7e744QaYeKIuyIrdgMytzAANramA0lpDc8igviNTG77vkAxfqWB6fRJ+Zc07uUDO3BonhMIg/FXOJ8Xz47kTIpBSlr/KszpFYTCfEXjZqJisItv+NCNMJ8tbRr7/TQAkx8W+8qCNNxVeCjEqTLYFZari6W0S2EpyeoUjxOPb+SosqNnbHlElw/yx5nB3zSrK0klRrbb34mxpFM7JTWE6vr9GogE9Yc6QnSwMU12iRRU2maCgsIR4pD1tjpVpVk3Op8tQ==
       location: demo-infra
       workers: 0
       masters: 3
-      ingressVIP: 10.1.196.48
-      apiVIP: 10.1.196.49
+      ingressVIP: 192.168.127.200
+      apiVIP: 192.168.127.201
       clusterSet: default
-      baseDomain: demo-cluster.rht-labs.com
+      baseDomain: example.com
       automaticHostBinding: true
       hostNames:
-      - ilo1.etl.rht-labs.com
-      - ilo1.et2.rht-labs.com
-      - ilo1.et3.rht-labs.comm
+      - master0.ocp4.example.com
+      - master1.ocp4.example.com
+      - master2.ocp4.example.com
   - name: cluster-registration
     releaseName: demo-cluster
     namespace: demo-cluster
     valuesInline: 
       clusterSet: default
-      repoURL: https://github.com/raffaelespazzoli/e2e-baremetal-provisioning.git
+      repoURL: https://github.com/machacekondra/e2e-baremetal-provisioning.git
       labels:
         cloud: BareMetal
         vendor: OpenShift                
