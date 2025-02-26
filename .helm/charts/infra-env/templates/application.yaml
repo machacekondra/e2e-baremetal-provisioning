@@ -12,7 +12,7 @@ spec:
   project: cluster-config
   source:
     path: infra-env/{{ .Release.Name }}
-    repoURL: 'https://github.com/raffaelespazzoli/e2e-baremetal-provisioning'
+    repoURL: 'https://github.com/machacekondra/e2e-baremetal-provisioning'
     targetRevision: HEAD
   syncPolicy:
     automated:

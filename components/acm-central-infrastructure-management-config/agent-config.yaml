@@ -4,21 +4,19 @@ metadata:
  name: agent
 spec:
   databaseStorage:
-    storageClassName: csi-cinder-sc-retain
     accessModes:
     - ReadWriteOnce
     resources:
       requests:
         storage: 10Gi
   filesystemStorage:
-    storageClassName: csi-cinder-sc-retain
     accessModes:
     - ReadWriteOnce
     resources:
       requests:
         storage: 10Gi
   imageStorage:
-    storageClassName: csi-cinder-sc-retain
+    storageClassName: local-sc
     accessModes:
     - ReadWriteOnce
     resources:
